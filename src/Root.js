@@ -69,7 +69,7 @@ const Form = (props) => {
               <div className="field">
                 <label className="label">Password</label>
                 <div className="control">
-                  <input
+                  {/* <input
                     _ngcontent-c24=""
                     autoComplete="new-password"
                     name="password0"
@@ -77,10 +77,9 @@ const Form = (props) => {
                     readOnly={true}
                     type="password"
                     value="Dummy@123"
-                  />
+                  /> */}
                   <input
                     _ngcontent-c24=""
-                    autoComplete="off"
                     id="pass"
                     placeholder="Enter Password"
                     aria-invalid="true"
@@ -88,6 +87,7 @@ const Form = (props) => {
                     aria-describedby="mat-error-2"
                     ref={passwordInput}
                     readOnly={true}
+                    type="text"
                     onFocus={() =>{ passwordInput.current.type = "password";handleFocus(passwordInput)}}
                     // onBlur={() => (passwordInput.current.readOnly = true)}
                     className={`input ${errors.password && "is-danger"}`}
@@ -96,7 +96,7 @@ const Form = (props) => {
                     value={values.password || ""}
                     required
                   />
-                  <input
+                  {/* <input
                     _ngcontent-c24=""
                     autoComplete="new-password"
                     readOnly={true}
@@ -104,7 +104,7 @@ const Form = (props) => {
                     style={{ display: "none" }}
                     type="password"
                     value="Dummy@123"
-                  />
+                  /> */}
 
                 </div>
                 {errors.password && (
