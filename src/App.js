@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from "react-router-dom";
+import Chrome from "./Root";
+import Safari from "./Safari";
+import Dashboard from "./Dashboard";
 
-function App() {
+const App = () => {
+  const [loggedIn, setloggedIn] = useState(false);
+
+  function callbackFunction(childData) {
+    setloggedIn(childData);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/Dashboard" element = {<Dashboard/>}>
+        </Route>
+        <Route path="/" element = {<Chrome parentCallback={callbackFunction} />}>
+        {/* <Route path="/" element = {<Safari parentCallback={callbackFunction} />}> */}
+        </Route>
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
