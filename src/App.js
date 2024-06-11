@@ -21,9 +21,9 @@ const App = () => {
       <Routes>
         <Route path="/Dashboard" element = {<Dashboard/>}>
         </Route>
-        <Route path="/" element = {<Chrome parentCallback={callbackFunction} />}>
-        {/* <Route path="/" element = {<Safari parentCallback={callbackFunction} />}> */}
-        </Route>
+        {/* <Route path="/" element = {<Chrome parentCallback={callbackFunction} />} /> */}
+        <Route path="/" element = {<Safari parentCallback={callbackFunction} />} />
+        <Route path="/default" element = {<center><h1>Welcome</h1></center>}  /> 
       </Routes>
     </Router>
   );

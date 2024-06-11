@@ -10,14 +10,14 @@ const Form = (props) => {
     login,
     validate
   );
-  const navigate = useNavigate();
+  const navigate = useNavigate();   
   const userNameInput = useRef(null);
   const passwordInput = useRef(null);
 
   function login() {
-    // disableAutocomplete();
     props.parentCallback(true);
-    return navigate("/default");
+    // return navigate("/default");
+    setTimeout(() => navigate("/default"), 1000);
   }
   const disableAutocomplete = () => {
     if (userNameInput.current) {
@@ -82,7 +82,7 @@ const Form = (props) => {
                 <div className="control">
                   <input
                     _ngcontent-c24=""
-                    tabindex="-1"
+                    tabIndex="-1"
                     autoComplete="new-password"
                     name="password0"
                     className="stealthy"
@@ -91,10 +91,6 @@ const Form = (props) => {
                     type="password"
                     value="Dummy@123"
                   />
-
-                  {/* <input type="text" style={{ display: "none" }} autoComplete="off" />
-                  <input type="password" style={{ display: "none" }} autoComplete="new-password" /> */}
-
                   <input
                     _ngcontent-c24=""
                     role="presentation"
@@ -107,7 +103,6 @@ const Form = (props) => {
                     readOnly={true}
                     type="text"
                     onFocus={() =>{ passwordInput.current.type = "password";handleFocus(passwordInput)}}
-                    onBlur={() => (passwordInput.current.readOnly = true)}
                     className={`input ${errors.password && "is-danger"}`}
                     name="password"
                     onChange={handleChange}
@@ -132,7 +127,9 @@ const Form = (props) => {
               <button
                 type="submit"
                 className="button is-block is-info is-fullwidth"
-                onClick={(e) =>{passwordInput.current.value="";handleSubmit(e)}}
+                onClick={(e) =>{
+                handleSubmit(e)
+            }}
               >
                 Login
               </button>
