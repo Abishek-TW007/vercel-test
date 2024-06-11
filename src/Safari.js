@@ -12,35 +12,33 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setTimeout(() => {
-    //   if (username && password) {
+      if (username && password) {
         navigate("/default");
-    //   }
+      }
     }, 300);
   };
-
-  const handleKeys=(e) =>{
-    console.log(e.target.value,"====>key")
-  }
 
 
   return (
     <>
-        <input type="text" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)} id="country"/>
+        <input type="text" name="email" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)} autoComplete={"off"}/>
+        <input type="text" className="controlled"/>
+        <input type="text" className="controlled"/>
         <input 
-        // autoComplete="new-password"
-        readOnly={true}
-        ref={passwordInput}
-        onFocus={() => passwordInput.current.readOnly=false}
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        onKeyDown={handleKeys}
+            autoComplete="off"
+            name="password"
+            readOnly={true}
+            ref={passwordInput}
+            onFocus={() => {passwordInput.current.type="password";passwordInput.current.readOnly=false}}
+            placeholder="password" 
+            // type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
         />
 
         <form  noValidate autoComplete="off" >
-            <div className="control">
-                <input type="text" defaultValue=""/>
-                <input type="password" autoComplete="new-password" defaultValue=""/>
+            <div className="controlled">
+                <input type="password" value="dummy"/>
             </div>
             <button onClick={handleSubmit}>login</button>
         </form>
@@ -49,3 +47,7 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
+
+
+

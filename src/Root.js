@@ -53,10 +53,9 @@ const Form = (props) => {
   return (
     <div className="section is-fullheight">
       <div className="container">
-        <div className="column is-6 is-offset-3">
+        <div className="column is-6 is-offset-3">   
           <div className="box">
             <h1>Login</h1>
-            <form  noValidate  onSubmit={(e)=>e.preventDefault()} autoComplete="off">
               <div className="field">
                 <label className="label">Email Address</label>
                 <div className="control">
@@ -133,7 +132,6 @@ const Form = (props) => {
               >
                 Login
               </button>
-            </form>
           </div>
         </div>
       </div>

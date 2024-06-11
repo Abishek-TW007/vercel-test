@@ -22,6 +22,6 @@ text-security:disc;
 /* -webkit-text-security:disc; */
 }
 
-.control  {
+.controlled  {
  display: none;
 }
