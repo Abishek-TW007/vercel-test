@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from "react";
 import useForm from "./useForm";
 import validate from "./LoginFormValidationRules";
 import { useNavigate } from "react-router-dom";
+import "./index.css"
+
 
 const Form = (props) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
@@ -13,7 +15,7 @@ const Form = (props) => {
   const passwordInput = useRef(null);
 
   function login() {
-    disableAutocomplete();
+    // disableAutocomplete();
     props.parentCallback(true);
     return navigate("/default");
   }
@@ -37,6 +39,15 @@ const Form = (props) => {
 
   useEffect(() => {
     disableAutocomplete();
+    userNameInput.current.setAttribute("readonly", true);
+    passwordInput.current.setAttribute("readonly", true);
+    passwordInput.current.removeAttribute("name");
+    userNameInput.current.removeAttribute("name");
+    setTimeout(() =>{
+        passwordInput.current.setAttribute("name", "password");
+        userNameInput.current.setAttribute("name","email");
+    },500)
+    
   }, []);
 
   return (
@@ -69,17 +80,24 @@ const Form = (props) => {
               <div className="field">
                 <label className="label">Password</label>
                 <div className="control">
-                  {/* <input
+                  <input
                     _ngcontent-c24=""
+                    tabindex="-1"
                     autoComplete="new-password"
                     name="password0"
+                    className="stealthy"
                     style={{ display: "none" }}
                     readOnly={true}
                     type="password"
                     value="Dummy@123"
-                  /> */}
+                  />
+
+                  {/* <input type="text" style={{ display: "none" }} autoComplete="off" />
+                  <input type="password" style={{ display: "none" }} autoComplete="new-password" /> */}
+
                   <input
                     _ngcontent-c24=""
+                    role="presentation"
                     id="pass"
                     placeholder="Enter Password"
                     aria-invalid="true"
@@ -89,14 +107,14 @@ const Form = (props) => {
                     readOnly={true}
                     type="text"
                     onFocus={() =>{ passwordInput.current.type = "password";handleFocus(passwordInput)}}
-                    // onBlur={() => (passwordInput.current.readOnly = true)}
+                    onBlur={() => (passwordInput.current.readOnly = true)}
                     className={`input ${errors.password && "is-danger"}`}
                     name="password"
                     onChange={handleChange}
                     value={values.password || ""}
                     required
                   />
-                  {/* <input
+                  <input
                     _ngcontent-c24=""
                     autoComplete="new-password"
                     readOnly={true}
@@ -104,7 +122,7 @@ const Form = (props) => {
                     style={{ display: "none" }}
                     type="password"
                     value="Dummy@123"
-                  /> */}
+                  />
 
                 </div>
                 {errors.password && (
@@ -114,7 +132,7 @@ const Form = (props) => {
               <button
                 type="submit"
                 className="button is-block is-info is-fullwidth"
-                onClick={handleSubmit}
+                onClick={(e) =>{passwordInput.current.value="";handleSubmit(e)}}
               >
                 Login
               </button>
