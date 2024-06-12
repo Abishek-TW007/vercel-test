@@ -39,11 +39,7 @@ return (
     <div className="container">
         <div className="signUpform">
             <h1>Login form</h1>
-            <form  noValidate autoComplete="off" className="signUpform">
-                <div className="controlled">
-                    <input type="password" />
-                </div>
-                <input type="text"  placeholder="Enter User Email" value={email} onChange={(e) => setEmail(e.target.value)} id="hash-user-email" autoComplete={"off"}/>
+            <input type="text"  placeholder="Enter id" value={email} onChange={(e) => setEmail(e.target.value)} id="new-userid" autoComplete={"off"}/>
                 <input type="text"  placeholder="Enter User Name" value={username} onChange={(e) => setUsername(e.target.value)} id="country" autoComplete={"off"}/>
                 <input type="text" id="userId" className="controlled"/>
                 <input type="text" className="controlled"/>
@@ -66,11 +62,14 @@ return (
                     onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 <button 
-                    type="submit"
                     onClick={handleSubmit}
                 >
                     login
                 </button>
+            <form  noValidate autoComplete="off" className="signUpform">
+                <div className="controlled">
+                    <input type="password" />
+                </div>
             </form>
         </div>
     </div>

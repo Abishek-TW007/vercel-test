@@ -30,68 +30,68 @@ const LoginForm = () => {
 
  
 
-//   return (
-//     <div className="container">
-//         <div className="loginform">
-//             <h1>Login form</h1>
-//             <input type="text"  placeholder="Enter User Name" value={username} onChange={(e) => setUsername(e.target.value)} id="country" autoComplete={"off"}/>
-//             <input type="text" id="userId" className="controlled"/>
-//             <input type="text" className="controlled"/>
-//             {<input 
-//                 autoComplete="one-time-code"
-//                 readOnly={true}
-//                 ref={passwordInput}
-//                 onFocus={() => {passwordInput.current.type="password";passwordInput.current.readOnly=false}}
-//                 placeholder="Enter Password" 
-//                 value={password}
-//                 onChange={(e) => setPassword(e.target.value)}
-//             />}
-
-//             <form  noValidate autoComplete="off" >
-//                 <div className="controlled">
-//                     <input type="password" />
-//                 </div>
-//                 <button 
-//                 onClick={handleSubmit}>login</button>
-//             </form>
-//         </div>
-//     </div>
-//   );
-// };
-
-
-
-return (
+  return (
     <div className="container">
         <div className="loginform">
             <h1>Login form</h1>
-            <form  noValidate autoComplete="off" className="loginform">
+            <input type="text"  placeholder="Enter User Name" value={username} onChange={(e) => setUsername(e.target.value)} id="country" autoComplete={"off"}/>
+            <input type="text" id="userId" className="controlled"/>
+            <input type="text" className="controlled"/>
+            {<input 
+                autoComplete="one-time-code"
+                readOnly={true}
+                ref={passwordInput}
+                onFocus={() => {passwordInput.current.type="password";passwordInput.current.readOnly=false}}
+                placeholder="Enter Password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />}
+
+            <form  noValidate autoComplete="off" >
                 <div className="controlled">
                     <input type="password" />
                 </div>
-                <input type="text"  placeholder="Enter User Name" value={username} onChange={(e) => setUsername(e.target.value)} id="country" autoComplete={"off"}/>
-                <input type="text" id="userId" className="controlled"/>
-                <input type="text" className="controlled"/>
-                <input 
-                    autoComplete="one-time-code"
-                    readOnly={true}
-                    ref={passwordInput}
-                    onFocus={() => {passwordInput.current.type="password";passwordInput.current.readOnly=false}}
-                    placeholder="Enter Password" 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
                 <button 
-                    type="submit"
-                    onClick={handleSubmit}
-                >
-                    login
-                </button>
+                onClick={handleSubmit}>login</button>
             </form>
         </div>
     </div>
   );
 };
+
+
+
+// return (
+//     <div className="container">
+//         <div className="loginform">
+//             <h1>Login form</h1>
+//             <form  noValidate autoComplete="off" className="loginform">
+//                 <div className="controlled">
+//                     <input type="password" />
+//                 </div>
+//                 <input type="text"  placeholder="Enter User Name" value={username} onChange={(e) => setUsername(e.target.value)} id="country" autoComplete={"off"}/>
+//                 <input type="text" id="userId" className="controlled"/>
+//                 <input type="text" className="controlled"/>
+//                 <input 
+//                     autoComplete="one-time-code"
+//                     readOnly={true}
+//                     ref={passwordInput}
+//                     onFocus={() => {passwordInput.current.type="password";passwordInput.current.readOnly=false}}
+//                     placeholder="Enter Password" 
+//                     value={password}
+//                     onChange={(e) => setPassword(e.target.value)}
+//                 />
+//                 <button 
+//                     type="submit"
+//                     onClick={handleSubmit}
+//                 >
+//                     login
+//                 </button>
+//             </form>
+//         </div>
+//     </div>
+//   );
+// };
 
 export default LoginForm;
 
