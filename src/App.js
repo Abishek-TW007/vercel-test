@@ -8,6 +8,7 @@ import {
 import Chrome from "./Root";
 import Safari from "./Safari";
 import Dashboard from "./Dashboard";
+import SignUpForm from "./SignupForm"
 
 const App = () => {
   const [loggedIn, setloggedIn] = useState(false);
@@ -22,7 +23,8 @@ const App = () => {
         <Route path="/Dashboard" element = {<Dashboard/>}>
         </Route>
         {/* <Route path="/" element = {<Chrome parentCallback={callbackFunction} />} /> */}
-        <Route path="/" element = {<Safari parentCallback={callbackFunction} />} />
+        <Route path="/" element = {<SignUpForm parentCallback={callbackFunction} />} />
+        <Route path="/login" element = {<Safari parentCallback={callbackFunction} />} />
         <Route path="/default" element = {<center><h1>Welcome</h1></center>}  /> 
       </Routes>
     </Router>
